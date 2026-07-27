@@ -14,4 +14,9 @@ function loadEnvFile(envName = 'qa') {
   }
 }
 
-module.exports = {loadEnvFile}
+function getCartBadgeExpectedCount(beforeCount, delta) {
+  const next = Number(beforeCount) + delta;
+  return next > 0 ? next.toString() : '';
+}
+
+module.exports = { loadEnvFile, getCartBadgeExpectedCount };

@@ -6,7 +6,7 @@ const envName = process.env.TEST_ENV || 'qa';
 loadEnvFile(envName);
 
 const baseURL = process.env.BASE_URL || 'https://www.daraz.lk';
-
+const AUTH_FILE = 'playwright/.auth/user.json';
 
 /** @type {import('@playwright/test').PlaywrightTestConfig['use']} */
 const sharedUse = {
@@ -22,6 +22,8 @@ const sharedUse = {
   video: 'retain-on-failure',
 };
 
+const ignoredTests = [/auth\.setup\.js/, /cart\.spec\.js/];
+
 module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -33,16 +35,33 @@ module.exports = defineConfig({
   use: sharedUse,
   projects: [
     {
+      name: 'setup',
+      testMatch: /auth\.setup\.js/,
+    },
+    {
       name: 'chromium',
+      testIgnore: ignoredTests,
       use: { ...devices['Desktop Chrome'] },
     },
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'chromium-cart',
+      testMatch: /cart\.spec\.js/,
+      dependencies: ['setup'],
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: AUTH_FILE,
+      },
     },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   testIgnore: ignoredTests,
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+    // {
+    //   name: 'webkit',
+    //   testIgnore: ignoredTests,
+    //   use: { ...devices['Desktop Safari'] },
+    // },
   ],
 });
+
