@@ -6,6 +6,18 @@ const SELECTORS = {
   languageSwitch: '#topActionSwitchLang',
   dialogClose: '.next-dialog-close',
   loginError: '.nextera-feedback-error, .next-feedback-error, [class*="error"]',
+  searchInput: 'Search in Daraz',
+  suggestList: 'div[class^="suggest-list"], [class*="search-box"] [class*="suggest"]',
+  flashSaleText : '#js_flashSale',
+
+  //Cart
+  cartBadge: '#topActionHeader svg',
+  cartCount: '#topActionCartNumber',
+
+  //Daraz Logo
+  darazLogo: '.lzd-logo-content',
+
+
 };
 
 const ROUTES = {

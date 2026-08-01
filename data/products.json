@@ -1,0 +1,52 @@
+{
+  "phones": {
+    "search_key": "iphone 15",
+    "brand": "Apple",
+    "model": "iPhone 15",
+    "min_price": "250000",
+    "max_price": "450000"
+  },
+  "tablets": {
+    "search_key": "android tablets",
+    "brand": "Samsung",
+    "model": "Galaxy Tab S9",
+    "min_price": "120000",
+    "max_price": "250000"
+  },
+  "headphones": {
+    "search_key": "wireless headphones",
+    "brand": "Sony",
+    "model": "WH-1000XM5",
+    "min_price": "80000",
+    "max_price": "150000"
+  },
+  "watches": {
+    "search_key": "smart watches",
+    "brand": "Huawei",
+    "model": "GT 4",
+    "min_price": "40000",
+    "max_price": "90000"
+  },
+  "laptops": {
+    "search_key": "gaming laptops",
+    "brand": "Asus",
+    "model": "ROG Strix G16",
+    "min_price": "350000",
+    "max_price": "700000"
+  },
+  "cameras": {
+    "search_key": "dslr cameras",
+    "brand": "Canon",
+    "model": "EOS 90D",
+    "min_price": "250000",
+    "max_price": "500000"
+  },
+  "suggest": {
+    "search_key": "Apple accessories",
+    "brand": "",
+    "model": "",
+    "min_price": "",
+    "max_price": ""
+  }
+}
+
