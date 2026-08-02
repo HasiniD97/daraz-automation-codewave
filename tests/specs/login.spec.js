@@ -6,7 +6,7 @@ const { SettingPage } = require('../../pages/user/SettingPage');
 
 const user = require('../../data/user.json');
 
-test.describe('Auth & Language', () => {
+test.describe('Login & Language', () => {
   let homePage;
   let loginPage;
   let settingPage;
@@ -20,7 +20,7 @@ test.describe('Auth & Language', () => {
   });
 
 
-  test('TC-01: Verify Successful login with valid credentials', async () => {
+  test('TC-01: Verify Successful login with valid credentials', async ({page}) => {
     await loginPage.login(userData.email, userData.password);
     await expect(loginPage.accountTrigger).toHaveText(new RegExp(userData.displayName, 'i'));
   });

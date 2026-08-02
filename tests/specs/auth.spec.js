@@ -4,7 +4,7 @@ const { LoginPage } = require('../../pages/user/LoginPage');
 const user = require('../../data/user.json');
 const { SELECTORS } = require('../../common/constants');
 
-test.describe('Home Page', () => {
+test.describe('Authentication', () => {
     let homePage;
     let loginPage;
     const validUser = user.valid;

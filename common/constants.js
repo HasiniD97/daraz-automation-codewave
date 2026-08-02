@@ -7,8 +7,9 @@ const SELECTORS = {
   dialogClose: '.next-dialog-close',
   loginError: '.nextera-feedback-error, .next-feedback-error, [class*="error"]',
   searchInput: 'Search in Daraz',
-  suggestList: 'div[class^="suggest-list"], [class*="search-box"] [class*="suggest"]',
+  searchSuggestList : '[class*="suggest-list"]',
   flashSaleText : '#js_flashSale',
+  brandCheckbox: '.ant-checkbox-wrapper',
 
   //Cart
   cartBadge: '#topActionHeader svg',
@@ -17,6 +18,12 @@ const SELECTORS = {
   //Daraz Logo
   darazLogo: '.lzd-logo-content',
 
+
+  //display filtered products detail 
+  filterDetail : '.ant-tag',
+
+  //product page
+  productCard : '[data-qa-locator="product-item"]',
 
 };
 

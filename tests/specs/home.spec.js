@@ -1,12 +1,14 @@
 const { test, expect } = require('@playwright/test');
 const { HomePage } = require('../../pages/home/HomePage');
 const { SearchBar } = require('../../pages/common/SearchBar');
+const { ProductsPage } = require('../../pages/products/ProductsPage');
 const { SELECTORS } = require('../../common/constants');
 const productList = require('../../data/products.json');
 
-test.describe('Home Page', () => {
+test.describe('Homepage', () => {
     let homePage;
     let searchBar;
+    let productsPage;
     const product = productList;
 
     test.beforeEach(async ({ page }) => {
@@ -36,11 +38,15 @@ test.describe('Home Page', () => {
     test('TC-13: Verify Logo navigates back to homepage from catalog ', async ({ page }) => {
         let headphone = product.headphones;
         searchBar = new SearchBar(page);
+        productsPage = new ProductsPage(page);
+
         await searchBar.search(headphone.search_key);
-        await expect(page.locator('body')).toContainText(`items found for "${headphone.search_key}"`, { ignoreCase: true });
+        await productsPage.expectSearchedProductVisibility(headphone.search_key)
         await homePage.expectDarazLogoNavigationToHomepage();
         await expect(page.locator(SELECTORS.flashSaleText).getByText(/Flash Sale/i)).toBeVisible();
     });
+
+
 
 });
 
