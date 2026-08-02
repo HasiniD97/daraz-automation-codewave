@@ -33,7 +33,7 @@ class LoginPage {
     async logout() {
         await this.accountTrigger.click();
         await this.accountLogout.click({force:true});
-        await this.page.waitForLoadState('load');
+        // await this.page.waitForLoadState('load');
     }
 }
 
