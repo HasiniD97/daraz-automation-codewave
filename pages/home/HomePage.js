@@ -8,6 +8,7 @@ class HomePage extends BasePage {
     constructor(page) {
         super(page);
         this.loginTrigger = page.locator(SELECTORS.loginTrigger);
+        this.cartBadge = page.locator(SELECTORS.cartBadge);
         this.cartCount = page.locator(SELECTORS.cartCount);
         this.darazLogo = page.locator(SELECTORS.darazLogo);
     }
@@ -30,6 +31,12 @@ class HomePage extends BasePage {
         await this.darazLogo.click();
         await this.waitForPageReady();
     }
+
+       async gotoCart() {
+        await this.cartBadge.click();
+       
+    }
+
 
 }
 
