@@ -10,6 +10,8 @@ const SELECTORS = {
   searchSuggestList : '[class*="suggest-list"]',
   flashSaleText : '#js_flashSale',
   brandCheckbox: '.ant-checkbox-wrapper',
+  addToCartButton : 'Add to Cart',
+  buyNowButton : 'Buy Now',
 
   //Cart
   cartBadge: '#topActionHeader svg',
