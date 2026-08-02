@@ -24,8 +24,6 @@ class SearchBar {
         await expect(this.searchSuggestList.getByText(new RegExp(keyword, 'i')).first()).toBeVisible();
     }
 
-
-
 }
 
 module.exports = { SearchBar }

@@ -8,7 +8,7 @@ const { SELECTORS } = require('../../common/constants');
 
 test.describe('Search', () => {
     let homePage;
-    let searchBar
+    let searchBar;
     let productsPage;
 
     const phone = productList.phones;
