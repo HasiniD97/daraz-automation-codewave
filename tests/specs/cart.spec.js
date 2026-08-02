@@ -50,12 +50,14 @@ test.describe('Cart', () => {
         await cartPage.expectCartBadgeCount(expectedCount);
     });
 
+
     test(' TC-08: Verify Cart persistence after reload', async ({ page }) => {
         const beforeCount = await cartPage.getCartCount();
         await page.reload();
         await page.waitForLoadState('load');
         await cartPage.expectCartBadgeCount(beforeCount);
     });
+
 
     test('TC-09: Verify Remove item and badge update', async ({ page }) => {
         const tablet = productList.tablets;
@@ -83,6 +85,7 @@ test.describe('Cart', () => {
         await cartPage.expectCartBadgeCount(expectedCount);
         
     });
+    
 
     test('TC-26: Verify Cart badge increases after adding another product', async ({ page }) => {
         const tablet = productList.tablets;
