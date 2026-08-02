@@ -22,6 +22,11 @@ class SingleProductPage {
         await expect(this.buyNowButton).toBeVisible();    
     }
 
+     async addToCart() {
+        await this.addToCartButton.click();    
+    }
+
+
 }
 
 module.exports = { SingleProductPage }
