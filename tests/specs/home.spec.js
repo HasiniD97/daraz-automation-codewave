@@ -3,6 +3,7 @@ const { HomePage } = require('../../pages/home/HomePage');
 const { SearchBar } = require('../../pages/common/SearchBar');
 const { ProductsPage } = require('../../pages/products/ProductsPage');
 const { SELECTORS } = require('../../common/constants');
+const { DARAZ_URL_PATTERN } = require('../../common/site');
 const productList = require('../../data/products.json');
 
 test.describe('Homepage', () => {
@@ -17,7 +18,7 @@ test.describe('Homepage', () => {
     });
 
     test('TC-10: Verify Homepage loads with correct title and URL', async ({ page }) => {
-        await expect(page).toHaveURL(/daraz\.lk/);
+        await expect(page).toHaveURL(DARAZ_URL_PATTERN);
         await expect(page).toHaveTitle(/Daraz/i);
     });
 

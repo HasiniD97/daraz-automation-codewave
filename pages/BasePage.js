@@ -8,12 +8,16 @@ class BasePage {
   }
 
   async goto(path = '/') {
-    await this.page.goto(path);
-    // await this.closePopup();
+    await this.page.goto(path, { waitUntil: 'load', timeout: TIMEOUTS.navigation });
   }
 
-  async waitForPageReady() {
-    await this.page.waitForLoadState('load');
+  async waitForPageReady(options = {}) {
+    const timeout = options.timeout ?? TIMEOUTS.navigation;
+    await this.page.waitForLoadState('load', { timeout });
+  }
+
+  async expectVisible(locator, options = {}) {
+    await expect(locator).toBeVisible({ timeout: TIMEOUTS.default, ...options });
   }
 
   async closePopup() {
@@ -31,9 +35,6 @@ class BasePage {
     }
   }
 
-//   async expectVisible(locator, options = {}) {
-//     await expect(locator).toBeVisible({ timeout: TIMEOUTS.default, ...options });
-//   }
 }
 
 module.exports = { BasePage };
