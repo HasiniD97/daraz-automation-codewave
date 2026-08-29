@@ -1,4 +1,4 @@
-const BASE_URL = process.env.BASE_URL || 'https://www.daraz.lk';
+const { getDarazBaseUrl } = require('./site');
 
 const SELECTORS = {
   loginTrigger: '#anonLogin',
@@ -39,4 +39,11 @@ const TIMEOUTS = {
   navigation: 30000,
 };
 
-module.exports = { BASE_URL, SELECTORS, TIMEOUTS };
+module.exports = {
+  get BASE_URL() {
+    return getDarazBaseUrl();
+  },
+  SELECTORS,
+  ROUTES,
+  TIMEOUTS,
+};

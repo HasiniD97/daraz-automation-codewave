@@ -2,6 +2,7 @@ const { expect } = require('@playwright/test');
 const { BasePage } = require('../../pages/BasePage');
 
 const { SELECTORS } = require('../../common/constants');
+const { DARAZ_URL_PATTERN } = require('../../common/site');
 
 class HomePage extends BasePage {
 
@@ -19,7 +20,7 @@ class HomePage extends BasePage {
     }
 
     async expectHomepageLoaded() {
-        await expect(this.page).toHaveURL(/daraz\.lk/);
+        await expect(this.page).toHaveURL(DARAZ_URL_PATTERN);
         await expect(this.page).toHaveTitle(/Daraz/i);
     }
 

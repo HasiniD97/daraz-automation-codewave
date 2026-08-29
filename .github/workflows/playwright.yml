@@ -25,3 +25,9 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+        
+    - name: SonarQube Cloud Scan
+      uses: SonarSource/sonarqube-scan-action@v5
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: "61e5a42a706030c2be955b1f7a1e683294637139"

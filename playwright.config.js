@@ -1,11 +1,12 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 const { loadEnvFile } = require('./util/helper');
+const { getDarazBaseUrl } = require('./common/site');
 
 const envName = process.env.TEST_ENV || 'qa';
 loadEnvFile(envName);
 
-const baseURL = process.env.BASE_URL || 'https://www.daraz.lk';
+const baseURL = getDarazBaseUrl();
 const AUTH_FILE = 'playwright/.auth/user.json';
 
 /** @type {import('@playwright/test').PlaywrightTestConfig['use']} */
@@ -22,7 +23,7 @@ const sharedUse = {
   video: 'retain-on-failure',
 };
 
-const ignoredTests = [/auth\.setup\.js/, /cart\.spec\.js/];
+const ignoredTests = [/auth\.setup\.js/, /cart\.spec\.js/, /smoke\//];
 
 module.exports = defineConfig({
   testDir: './tests',
@@ -32,6 +33,7 @@ module.exports = defineConfig({
   workers: process.env.CI ? 2 : undefined,
   timeout: 60000,
   reporter: [['html'], ['list']],
+  grep: process.env.GREP ? new RegExp(process.env.GREP) : undefined,
   use: sharedUse,
   projects: [
     {
@@ -41,6 +43,11 @@ module.exports = defineConfig({
     {
       name: 'chromium',
       testIgnore: ignoredTests,
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'smoke-chromium',
+      testMatch: /smoke\/.*\.spec\.js/,
       use: { ...devices['Desktop Chrome'] },
     },
     {

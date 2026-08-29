@@ -1,0 +1,12 @@
+{
+  "valid": {
+    "email": "your-test-user@example.com",
+    "password": "UseEnvOrSecretsInstead",
+    "displayName": "Test User Account",
+    "language": "en"
+  },
+  "invalid": {
+    "email": "nota.real.user@invalid-test.com",
+    "password": "WrongPassword!000"
+  }
+}
